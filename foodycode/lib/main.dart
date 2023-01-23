@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './Category_screen.dart';
+import './item_page.dart';
 void main(){
   runApp(MyApp());
 }
@@ -9,7 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
-      home:  Categoryscreen() ,
+      routes: {
+        '/': (ctx) => Categoryscreen(),
+        '/inner-dish': (ctx) =>  DishPage(),
+      },
     );
   }
 }
