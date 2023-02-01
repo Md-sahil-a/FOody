@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './dummy_data.dart';
+import './food_card.dart';
 class DishPage extends StatelessWidget {
   // final String id;
   // final String title;
@@ -16,7 +17,7 @@ class DishPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(CategoryTitle!)),
       body:  ListView.builder(itemBuilder: (context, index){
-        return Text(foodCategories[index].title);
+        return FoodItem(title: foodCategories[index].title, imageUrl: foodCategories[index].imageUrl, affordability: foodCategories[index].affordability, complexity: foodCategories[index].complexity, duration: foodCategories[index].duration,);
       }, itemCount: foodCategories.length,)
     );
   }
