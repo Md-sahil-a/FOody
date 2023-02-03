@@ -9,15 +9,15 @@ class DishPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final routeArg = ModalRoute.of(context)?.settings.arguments as Map<String, String>;
     final CategoryTitle = routeArg['title'];
-    final id = routeArg['id'];
+    final argid = routeArg['id'];
     final foodCategories = DUMMY_MEALS.where((meal){
-      return meal.categories.contains(id);
+      return meal.categories.contains(argid);
     }).toList();
 
     return Scaffold(
       appBar: AppBar(title: Text(CategoryTitle!)),
       body:  ListView.builder(itemBuilder: (context, index){
-        return FoodItem(title: foodCategories[index].title, imageUrl: foodCategories[index].imageUrl, affordability: foodCategories[index].affordability, complexity: foodCategories[index].complexity, duration: foodCategories[index].duration,);
+        return FoodItem(id: foodCategories[index].id,  title: foodCategories[index].title, imageUrl: foodCategories[index].imageUrl, affordability: foodCategories[index].affordability, complexity: foodCategories[index].complexity, duration: foodCategories[index].duration,);
       }, itemCount: foodCategories.length,)
     );
   }

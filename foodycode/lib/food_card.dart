@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import './model/foods.dart';
-
+import './food_item_screen.dart';
 class FoodItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final Complexity complexity;
   final Affordability affordability;
   final int duration;
   FoodItem(
-      {required this.title,
+      {
+      required this.id,  
+      required this.title,
       required this.imageUrl,
       required this.affordability,
       required this.complexity,
       required this.duration});
 
-  void detail() {}
+
 
   String get textcomplexity {
     switch (complexity) {
@@ -45,11 +48,17 @@ class FoodItem extends StatelessWidget {
         return 'unknown';
     }
   }
+    void detail(BuildContext ctx) {
+      Navigator.of(ctx).pushNamed(
+        FoodyItem.routname,
+        arguments: id,
+      );
+    }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: detail,
+      onTap: ()=>detail(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
