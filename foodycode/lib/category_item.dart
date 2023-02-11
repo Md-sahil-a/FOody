@@ -20,7 +20,7 @@ class CatergoryItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       onTap: (() => NavigateToitem(context)),
       child: Container(
-        padding: EdgeInsets.all(30),
+        padding:const EdgeInsets.all(30),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [

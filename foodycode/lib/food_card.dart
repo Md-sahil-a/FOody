@@ -8,6 +8,7 @@ class FoodItem extends StatelessWidget {
   final Complexity complexity;
   final Affordability affordability;
   final int duration;
+  Function removeItem;
   FoodItem(
       {
       required this.id,  
@@ -15,7 +16,9 @@ class FoodItem extends StatelessWidget {
       required this.imageUrl,
       required this.affordability,
       required this.complexity,
-      required this.duration});
+      required this.duration,
+      required this.removeItem,
+      });
 
 
 
@@ -52,6 +55,13 @@ class FoodItem extends StatelessWidget {
       Navigator.of(ctx).pushNamed(
         FoodyItem.routname,
         arguments: id,
+      ).then((value) => {
+        if(value !=null)
+        {
+          removeItem(value),
+        }
+
+      }
       );
     }
 

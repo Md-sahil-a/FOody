@@ -83,6 +83,11 @@ class FoodyItem extends StatelessWidget {
                   itemCount: selectedMeal.steps.length,
                 ),
               ),
+              FloatingActionButton(onPressed: (){
+                Navigator.of(context).pop(argId);
+              },
+              child:const Icon(Icons.delete),
+              )
             ],
           ),
         ));
