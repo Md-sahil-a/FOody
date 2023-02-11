@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import './Category_screen.dart';
+
+
+import './tab_screen.dart';
 import './item_page.dart';
 import './food_item_screen.dart';
+
 void main(){
   runApp(MyApp());
 }
@@ -12,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(),
       routes: {
-        '/': (ctx) => Categoryscreen(),
+        '/': (ctx) => const tabScreen(),
         '/inner-dish': (ctx) =>  DishPage(),
         FoodyItem.routname:(ctx) =>const FoodyItem(), 
       },
